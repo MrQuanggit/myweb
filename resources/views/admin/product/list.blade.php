@@ -35,11 +35,7 @@
                                         <td>{{$key + 1}}</td>
                                         <td>{{$product->product_name}}</td>
                                         <td><img style="width: 100px; height: 100px"
-                                                 src="@if($product->getProductImage() == 'https://quangvoc8.s3.amazonaws.com/')
-                                                     https://miro.medium.com/max/2834/0*f81bU2qWpP51WWWC.jpg
-                                                   @else
-                                                 {{$product->getProductImage()}}
-                                                 @endif"
+                                                 src="{{$product->getProductImage()}}"
                                                  class="img-border-radius avatar-40 img-fluid"></td>
                                         <td>{{$product->stock}}</td>
                                         <td>{{$product->view}}</td>

@@ -25,9 +25,9 @@ class ProductRequest extends FormRequest
     {
         return [
             'product_name' => 'required|min:3',
-            'stock' => 'required',
-            'view' => 'required',
-            'priceEach' => 'required',
+            'stock' => 'required|integer',
+            'view' => 'required|integer',
+            'priceEach' => 'required|integer',
         ];
     }
 
@@ -37,8 +37,11 @@ class ProductRequest extends FormRequest
             'product_name.required' => '* Product name is required',
             'product_name.min' => '* At least 3 words',
             'stock.required' => '* Stock is required',
+            'stock.integer' => '* Stock is number',
             'view.required' => '* View is required',
+            'view.integer' => '* View is number',
             'priceEach.required' => '* Price is required',
+            'priceEach.integer' => '* View is number',
         ];
     }
 }

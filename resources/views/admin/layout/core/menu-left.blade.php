@@ -3,7 +3,7 @@
     <a href="{{route('admin.dashboard')}}" class="brand-link">
         <img src="" class="brand-image img-circle elevation-3"
              style="opacity: .8">
-        <span class="text-center font-weight-light">DANGQUANGWATCH</span>
+        <span class="text-center font-weight-light">NUYSHOP</span>
     </a>
 
     <!-- Sidebar -->
@@ -11,11 +11,11 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                <img src="https://st.quantrimang.com/photos/image/072015/22/avatar.jpg" class="img-circle elevation-2">
+                <img src="{{ \Illuminate\Support\Facades\Auth::user()->getUserImage() }}" class="img-circle elevation-2">
             </div>
             <div class="info">
                 <a href="{{route('admin.dashboard')}}" class="d-block">
-                    {{\Illuminate\Support\Facades\Auth::user()->name}}
+                    {{\Illuminate\Support\Facades\Auth::user()->user_name}}
                     <br>
                     <i>Role: <b>{{\Illuminate\Support\Facades\Auth::user()->role->name}}</b></i>
                 </a>
