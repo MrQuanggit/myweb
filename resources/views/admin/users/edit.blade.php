@@ -29,8 +29,21 @@
                             </div>
                             <div class="form-group">
                                 <label >Images</label>
-                                <img style="width: 200px" src="{{ asset('storage/'.substr($users->user_image, 7)) }}" alt="">
-                                <input name="user_image" value="" type="file" class="form-control">
+                                <div class="d-flex">
+                                    <div>
+                                        @if(!$users->user_image)
+                                            <img style="width: 100px; height: 100px"
+                                             src="{{ ImageConstant::AVATAR }}"
+                                             class="img-border-radius avatar-40 img-fluid" id="user_image">
+                                        @else
+                                            <img style="width: 100px; height: 100px" src="{{ asset('storage/'.substr($users->user_image, 7)) }}" alt="">
+                                        @endif
+
+                                    </div>
+                                    <div>
+                                        <input onchange="loadFile(event)" name="user_image" value="" type="file" class="form-control">
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <label>Role</label>
@@ -50,3 +63,13 @@
         </div>
     </div>
 @endsection
+<script>
+    var loadFile = function(event) {
+        var reader = new FileReader();
+        reader.onload = function(){
+            var output = document.getElementById('user_image');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    };
+</script>
