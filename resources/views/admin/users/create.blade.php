@@ -26,10 +26,18 @@
                         </div>
                         <div class="form-group">
                             <label>Image</label>
-                            <input name="user_image" type="file" class="form-control">
-                            @error('user_image')
-                            <div class="text-danger">{{ $message }}</div>
-                            @enderror
+                            <div class="d-flex">
+                                <div>
+                                    <img style="width: 100px; height: 100px"
+                                         src="{{ ImageConstant::AVATAR }}"
+                                         class="img-border-radius avatar-40 img-fluid" id="user_image">
+                                </div>
+                                <div>
+                                    <input onchange="loadFile(event)" name="user_image" type="file" class="form-control">
+                                    @error('user_image')
+                                    <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
                         </div>
                         <div class="form-group">
                             <label>Password</label>
@@ -57,14 +65,14 @@
                                 }
                             </script>
                         </div>
-                        {{--                        <div class="form-group">--}}
-                        {{--                            <label>Password Confirm</label>--}}
-                        {{--                            <input name="password_confirm" type="password"--}}
-                        {{--                                   class="form-control @error('password_confirm') is-invalid @enderror">--}}
-                        {{--                            @error('password_confirm')--}}
-                        {{--                            <div class="text-danger">{{ $message }}</div>--}}
-                        {{--                            @enderror--}}
-                        {{--                        </div>--}}
+                        <div class="form-group">
+                            <label>Password Confirm</label>
+                            <input name="password_confirm" type="password"
+                                   class="form-control @error('password_confirm') is-invalid @enderror">
+                            @error('password_confirm')
+                            <div class="text-danger">{{ $message }}</div>
+                            @enderror
+                        </div>
                         <div class="form-group">
                             <label>Email</label>
                             <input name="user_email" value="{{ old('user_email') }}" type="email"
@@ -101,3 +109,13 @@
         </div>
     </div>
 @endsection
+<script>
+    var loadFile = function(event) {
+        var reader = new FileReader();
+        reader.onload = function(){
+            var output = document.getElementById('user_image');
+            output.src = reader.result;
+        };
+        reader.readAsDataURL(event.target.files[0]);
+    };
+</script>
