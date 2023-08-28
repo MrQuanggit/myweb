@@ -24,17 +24,17 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
           integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <base href="/index_resource/resource">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ asset('index_resource/style.css') }}">
 </head>
 <body>
 <!-- Navigation -->
 <!-- <nav class="navbar"> -->
-<div class="header">
+<div class="header" id="navbar">
     <input type="checkbox" id="check"/>
     <label for="check" class="show-menu-btn">
         <i class="fas fa-ellipsis-h"></i>
     </label>
-    <div class="container-fluid home">
+    <div class="container-fluid home" >
         <div class="row">
             <div class="col-md-3 menu">
                 <span style="float: left; padding-left: 15px"><i class="fas fa-globe"> Vietnam</i></span>
