@@ -1,6 +1,6 @@
 @include('index.layout.navbar')
 {{----}}
-<img style="width: 100%"
+<img style="width: 100%; margin-top: 120px;"
      src="https://www.danielwellington.com/ecom2-image-bucket/mv3xw5mnbbp0/40l2QSxoMj1LSuiIn8T4qE/72cc2cb18624006b47cc86aaa561fbdb/Holiday_hero_start_2800x1000.jpg"
      alt="">
 {{----}}
