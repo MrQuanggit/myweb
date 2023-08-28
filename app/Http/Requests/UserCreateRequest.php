@@ -27,7 +27,7 @@ class UserCreateRequest extends FormRequest
             'user_name' => 'required|min:5',
             'user_email' => 'required|email',
             'password' => 'required|min:3|max:10',
-//            'password_confirm' => 'required|same:password',
+            'password_confirm' => 'required|same:password',
             'user_phone' => 'required|numeric',
         ];
     }
@@ -42,8 +42,8 @@ class UserCreateRequest extends FormRequest
             'password.required' => '* Password is required',
             'password.min' => '* At least 3 words',
             'password.max' => '* At most 10 words',
-//            'password_confirm.required' => '* Password is required',
-//            'password_confirm.same' => '* Password and Password Confirm is not the same',
+            'password_confirm.required' => '* Password is required',
+            'password_confirm.same' => '* Password and Password Confirm is not the same',
             'user_phone.required' => '* Phone is required',
             'user_phone.numeric' => '* Phone is not number',
         ];
