@@ -24,6 +24,8 @@ class CreateUserTable extends Migration
             $table->integer('status')->default(1);
             $table->unsignedInteger('role_id')->nullable();
             $table->foreign('role_id')->references('id')->on('parts');
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 
