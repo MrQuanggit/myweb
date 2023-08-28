@@ -32,6 +32,9 @@ class User extends Authenticatable
 
     public function getUserImage () {
 //        return "https://quangvoc8.s3.amazonaws.com/".$this->user_image;
+        if(is_null($this->user_image)) {
+            return ImageConstant::AVATAR;
+        }
         return '/storage/avatars/' .ltrim($this->user_image, '/public/avatars/');
     }
 
